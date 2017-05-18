@@ -40,8 +40,13 @@
 	</media>
 	<files>
 		<filename plugin="tbw_tracking">tbw_tracking.php</filename>
+		
+		<filename>tbwebdesignlogo.png</filename>
 		<filename>index.html</filename>
+		
 		<folder>assets</folder>
+		<folder>plugin-update-checker</folder>
+		
 	</files>
 	<config>
         <fields name="params">
@@ -50,4 +55,8 @@
 			</fieldset>
 		</fields>
 	</config>
+	<updateservers>
+		<!-- Note: No spaces or linebreaks allowed between the server tags -->
+		<server type="extension" priority="1" name="HelloWorld Update Site">https://raw.githubusercontent.com/trevorbicewebdesign/Mothership-Tracking/master/updates.xml?token=AC_usoNiOVApSVlfmuBPwOv7RFnugL1nks5ZJl7wwA%3D%3D</server>
+	</updateservers>
 </extension>
