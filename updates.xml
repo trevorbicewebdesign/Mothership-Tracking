@@ -16,7 +16,9 @@
         </tags>
     <maintainer>Trevor Bice Webdesign</maintainer>
     <maintainerurl>https://webdesign.trevorbice.com</maintainerurl>
-    <targetplatform name="joomla" version="3.*"/>
+    <targetplatform name="joomla" version="3.[012345]"/>
+  <section>Updates</section>
+  
  </update>
   <update>
     <name>TBWorks - Mothership Tracking</name>
@@ -34,6 +36,7 @@
         </tags>
     <maintainer>Trevor Bice Webdesign</maintainer>
     <maintainerurl>https://webdesign.trevorbice.com</maintainerurl>
-    <targetplatform name="joomla" version="3.*"/>
+    <targetplatform name="joomla" version="3.[012345]"/>
+   <section>Updates</section>
  </update>
 <updates>
