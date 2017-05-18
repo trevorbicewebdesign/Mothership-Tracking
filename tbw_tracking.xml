@@ -51,7 +51,6 @@
 		</fields>
 	</config>
 	<updateservers>
-		<!-- Note: No spaces or linebreaks allowed between the server tags -->
 		  <server type="extension" name="Mothership Update Site">https://raw.github.com/trevorbicewebdesign/Mothership-Tracking/master/updates.xml</server>
 	</updateservers>
 </extension>
