@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <updates>
  <update>
-    <name>tbw_tracking</name>
+    <name>TBWorks - Mothership Tracking</name>
     <description>Accept payments via Master Card, Visa and Verve using Paystack. Sign up at Paystack.com for your free account.</description>
-    <element>paystack</element>
+    <element>tbw_tracking</element>
     <type>plugin</type>
     <folder>system</folder>
     <client>0</client>
