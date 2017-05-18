@@ -52,6 +52,6 @@
 	</config>
 	<updateservers>
 		<!-- Note: No spaces or linebreaks allowed between the server tags -->
-		  <server type="extension" priority="1" name="Mothership Update Site">https://raw.githubusercontent.com/trevorbicewebdesign/Mothership-Tracking/master/updates.xml?token=413f01f41ebff897ba6c3e5c80d173c0e59782e5</server>
+		  <server type="extension" priority="1" name="Mothership Update Site">https://raw.githubusercontent.com/trevorbicewebdesign/Mothership-Tracking/master/updates.xml?token=AC_uskIKL6yVTYFHIbBfHI8rwgnUTxv7ks5ZJmRCwA%3D%3D</server>
 	</updateservers>
 </extension>
