@@ -7,6 +7,22 @@
     <type>plugin</type>
     <folder>system</folder>
     <client>0</client>
+    <version>1.1</version>
+    <infourl title="TBWorks - Mothership Tracking">https://github.com/trevorbicewebdesign/Mothership-Tracking/releases/tag/1.1.1</infourl>
+    <downloads>
+    <downloadurl type="upgrade" format="zip">https://github.com/trevorbicewebdesign/Mothership-Tracking/archive/master.zip</downloadurl>
+    </downloads>
+    <maintainer>Trevor Bice Webdesign</maintainer>
+    <maintainerurl>https://webdesign.trevorbice.com</maintainerurl>
+    <targetplatform name="joomla" version="3.0"/>
+ </update>
+ <update>
+    <name>TBWorks - Mothership Tracking</name>
+    <description>Accept payments via Master Card, Visa and Verve using Paystack. Sign up at Paystack.com for your free account.</description>
+    <element>tbw_tracking</element>
+    <type>plugin</type>
+    <folder>system</folder>
+    <client>0</client>
     <version>1.1.1</version>
     <infourl title="TBWorks - Mothership Tracking">https://github.com/trevorbicewebdesign/Mothership-Tracking/releases/tag/1.1.1</infourl>
     <downloads>
