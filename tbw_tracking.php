@@ -32,9 +32,10 @@ if( defined('JPATH_BASE') ) {
 			
 			$db = JFactory::getDbo();
 			$query = $db->getQuery(true);
-			$query->select($db->quoteName(array('name', 'manifest_cache')))
+			$query->select($db->quoteName(array('name', 'type', 'element', 'folder', 'manifest_cache', 'enabled')))
 				 ->from($db->quoteName('#__extensions'));
 			$db->setQuery($query);
+			
 			$results = $db->loadObjectList();
 			foreach ($results as $extension)
 			{
@@ -43,8 +44,12 @@ if( defined('JPATH_BASE') ) {
 				 $decode = json_decode($extension->manifest_cache);
 				//  print_r($decode);
 				//print_r($index);
-				$abbrv[$extension->name]['title'] 		= $extension->name;
-				$abbrv[$extension->name]['version'] 	= $decode->version;
+		
+				
+				$abbrv[$extension->name]['title'] 			= $extension->name;
+				$abbrv[$extension->name]['version'] 		= $decode->version;
+				$abbrv[$extension->name]['published'] 		= $extension->enabled;
+				$abbrv[$extension->name]['element'] 		= $extension->type.".".$extension->element.($extension->folder ? ".".$extension->folder : '');
 				// $abbrv[$index]['update']		=
 				//$i++;
 			
@@ -55,14 +60,20 @@ if( defined('JPATH_BASE') ) {
 			$siteVersion['plugins']	= $abbrv;
 			
 			$secret = $this->params->get('secret');
+			
+			
 			if($task == 'tbw_tracking.returnTracking' ){
 				if($key==md5($secret)){
+					header('Content-Type: application/json');
 					echo json_encode($siteVersion);
 					die();
 				}
 				echo "Invalid tracking code, exiting";
 				die();
 			}
+			
+			
+			
 			if($mainframe->isSite()) {	
 				$doc->setMetadata("tbw_tracking", "website Active"); 
 				$doc->setMetadata("tbw_tracking_version", "1.0"); 
@@ -177,8 +188,13 @@ else if($wp_version) {
 			$siteVersion['version']		= $version.".".$version->DEV_LEVEL." ".$version->DEV_STATUS;
 			$siteVersion['plugins']		= $abbrv;
 			$secret = get_option('tbw_mothership_tracking_secret');
-			if($task == 'tbw_tracking.returnTracking' && $key==md5($secret)){
-				echo json_encode($siteVersion);
+			if($task == 'tbw_tracking.returnTracking' ){
+				if($key==md5($secret)){
+					header('Content-Type: application/json');
+					echo json_encode($siteVersion);
+					die();
+				}
+				echo "Invalid tracking code, exiting";
 				die();
 			}
 			if (!is_admin()){
@@ -188,5 +204,9 @@ else if($wp_version) {
 			}
 		}
 	}
+}
+
+class mothershipTracking {
+	
 }
 ?>
