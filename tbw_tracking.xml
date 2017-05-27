@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.1" type="plugin" group="system" method="upgrade">
 	<name>TBWorks - Mothership Tracking</name>
@@ -7,7 +8,7 @@
 	<license>The MIT License (MIT)</license>
 	<authorEmail>trevorbicewebdesign@gmail.com</authorEmail>
 	<authorUrl>webdesign.trevorbice.com</authorUrl>
-	<version>1.1</version>
+	<version>1.1.4</version>
 	<description>
 		<![CDATA[
 		<link rel="stylesheet" href="../plugins/system/pingdomtracking/assets/admin.css" type="text/css" />
@@ -52,6 +53,6 @@
 	</config>
 	<updateservers>
 		<!-- Note: No spaces or linebreaks allowed between the server tags -->
-		  <server type="extension" priority="1" name="Mothership Update Site">https://raw.githubusercontent.com/trevorbicewebdesign/Mothership-Tracking/master/updates.xml?token=413f01f41ebff897ba6c3e5c80d173c0e59782e5</server>
+		  <server type="extension" priority="1" name="Mothership Update Site">https://raw.githubusercontent.com/trevorbicewebdesign/Mothership-Tracking/master/updates.xml</server>
 	</updateservers>
 </extension>
