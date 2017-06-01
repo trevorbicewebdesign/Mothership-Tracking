@@ -183,9 +183,9 @@ else if($wp_version) {
 			$siteVersion['platform'] 	= "Wordpress";
 			$siteVersion['release'] 		= $version;
 			$siteVersion['build']	 	= $version;
-			$siteVersion['dev_level']	= $version->DEV_LEVEL;
-			$siteVersion['dev_status']	= $version->DEV_STATUS;
-			$siteVersion['version']		= $version.".".$version->DEV_LEVEL." ".$version->DEV_STATUS;
+			$siteVersion['dev_level']	= "";
+			$siteVersion['dev_status']	= "";
+			$siteVersion['version']		= $version;
 			$siteVersion['plugins']		= $abbrv;
 			$secret = get_option('tbw_mothership_tracking_secret');
 			if($task == 'tbw_tracking.returnTracking' ){
