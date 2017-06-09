@@ -80,7 +80,7 @@ else if($wp_version) {
 		__FILE__,
 		'tbw_tracking'
 	);
-	$myUpdateChecker->setAuthentication('413f01f41ebff897ba6c3e5c80d173c0e59782e5');
+	//$myUpdateChecker->setAuthentication('413f01f41ebff897ba6c3e5c80d173c0e59782e5');
 	global $wl_options;
 	if(is_admin()) {
 	    load_plugin_textdomain('tbw-mothership-tracking', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n');
