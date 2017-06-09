@@ -39,22 +39,13 @@ if( defined('JPATH_BASE') ) {
 			$results = $db->loadObjectList();
 			foreach ($results as $extension)
 			{
-				//$index = 
-				
-				 $decode = json_decode($extension->manifest_cache);
-				//  print_r($decode);
-				//print_r($index);
-		
-				
+				$decode = json_decode($extension->manifest_cache);
+
 				$abbrv[$extension->name]['title'] 			= $extension->name;
 				$abbrv[$extension->name]['version'] 		= $decode->version;
 				$abbrv[$extension->name]['published'] 		= $extension->enabled;
 				$abbrv[$extension->name]['element'] 		= $extension->type.".".$extension->element.($extension->folder ? ".".$extension->folder : '');
-				// $abbrv[$index]['update']		=
-				//$i++;
-			
-			   
-			    //echo $extension->name . ' : ' . $decode->version . '<br>';
+
 			}
 			
 			$siteVersion['plugins']	= $abbrv;
@@ -165,10 +156,9 @@ else if($wp_version) {
 			$update_plugins = get_site_transient( 'update_plugins' );
 			$i = 0;
 			foreach($plugins as $index=>$val) {
-				//print_r($index);
 				$abbrv[$index]['title'] 		= $val['Title'];
 				$abbrv[$index]['version'] 	= $val['Version'];
-				// $abbrv[$index]['update']		=
+				$abbrv[$index]['published'] 	= is_plugin_active( $index );
 				$i++;
 			}
 			foreach($abbrv as $index=>$val){
