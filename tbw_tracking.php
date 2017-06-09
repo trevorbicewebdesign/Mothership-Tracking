@@ -3,7 +3,7 @@
 Plugin Name:    TBWorks - Mothership Tracking
 Plugin URI:     https://webdesign.trevorbice.com/
 Description:    Provide tracking information to Trevor Bice Webdesign
-Version:        1.1.4
+Version:        1.1.5
 Author:         Trevor Bice
 Author URI:     https://webdesign.trevorbice.com/
 */ 
