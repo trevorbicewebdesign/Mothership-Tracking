@@ -176,7 +176,7 @@ else if($wp_version) {
 					$abbrv[$index]['update'] 		= false;	
 				}
 			}
-			$query  = "SELECT `id`,`description`,`status`,`origin`,`type`,`profile_id`,`absolute_path`,`multipart`,`total_size` FROM wp_ak_stats ";
+			$query  = "SELECT `id`,`description`,`status`,`origin`,`type`,`profile_id`,`absolute_path`,`multipart`,`total_size` FROM ".$wpdb->prefix."ak_stats ";
 			$query .= "ORDER BY id DESC";
 			// echo $query;
 			// die();
