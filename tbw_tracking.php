@@ -153,6 +153,7 @@ else if($wp_version) {
 	}
 	add_action('template_redirect', 'mothership_tracking');
 	function mothership_tracking(){
+		global $wpdb;
 		$task 	= get_query_var('task');
 		$key 	= get_query_var('key');
 		if($task == 'tbw_tracking.returnTracking' ){
@@ -175,6 +176,17 @@ else if($wp_version) {
 					$abbrv[$index]['update'] 		= false;	
 				}
 			}
+			$query  = "SELECT `id`,`description`,`status`,`origin`,`type`,`profile_id`,`absolute_path`,`multipart`,`total_size` FROM wp_ak_stats ";
+			$query .= "ORDER BY id DESC";
+			// echo $query;
+			// die();
+			$backups = $wpdb->get_results( $query, OBJECT );
+			foreach ($backups as $backup)
+			{
+				$bkarray[$backup->id] = $backup;
+				$bkarray[$backup->id]->stored = file_exists($backup->absolute_path);
+				
+			}
 			$siteVersion['platform'] 	= "Wordpress";
 			$siteVersion['release'] 		= $version;
 			$siteVersion['build']	 	= $version;
@@ -182,6 +194,8 @@ else if($wp_version) {
 			$siteVersion['dev_status']	= "";
 			$siteVersion['version']		= $version;
 			$siteVersion['plugins']		= $abbrv;
+			$siteVersion['backups'] 		= $bkarray; 
+			
 			$secret = get_option('tbw_mothership_tracking_secret');
 			if($task == 'tbw_tracking.returnTracking' ){
 				if($key==md5($secret)){
