@@ -3,7 +3,7 @@
 Plugin Name:    TBWorks - Mothership Tracking
 Plugin URI:     https://webdesign.trevorbice.com/
 Description:    Provide tracking information to Trevor Bice Webdesign
-Version:        1.1.5
+Version:        1.1.6
 Author:         Trevor Bice
 Author URI:     https://webdesign.trevorbice.com/
 */ 
@@ -25,34 +25,42 @@ if( defined('JPATH_BASE') ) {
 			$siteVersion['dev_level']	= $version->DEV_LEVEL;
 			$siteVersion['dev_status']	= $version->DEV_STATUS;
 			$siteVersion['version']		= $version->RELEASE.".".$version->DEV_LEVEL." ".$version->DEV_STATUS;
-			
 			// Not sure why this sometimes doesnt return an actual value, but just in case 
 			$task 	= $jinput->get('task', 	$_REQUEST['task'], 		'RAW');
 			$key		= $jinput->get('key', 	$_REQUEST['key'], 		'RAW');
-			
 			$db = JFactory::getDbo();
 			$query = $db->getQuery(true);
 			$query->select($db->quoteName(array('name', 'type', 'element', 'folder', 'manifest_cache', 'enabled')))
 				 ->from($db->quoteName('#__extensions'));
 			$db->setQuery($query);
-			
+		
 			$results = $db->loadObjectList();
 			foreach ($results as $extension)
 			{
 				$decode = json_decode($extension->manifest_cache);
-
 				$abbrv[$extension->name]['title'] 			= $extension->name;
 				$abbrv[$extension->name]['version'] 		= $decode->version;
 				$abbrv[$extension->name]['published'] 		= $extension->enabled;
 				$abbrv[$extension->name]['element'] 		= $extension->type.".".$extension->element.($extension->folder ? ".".$extension->folder : '');
-
 			}
-			
 			$siteVersion['plugins']	= $abbrv;
 			
+			$db = JFactory::getDbo();
+			$query = $db->getQuery(true);
+			$query->select($db->quoteName(array('id', 'description', 'status', 'origin', 'type', 'profile_id', 'absolute_path','multipart','total_size')))
+				 ->from($db->quoteName('#__ak_stats'));
+			$query->order(" id DESC ");
+			$db->setQuery($query);
+			$backups = $db->loadObjectList();	
+			foreach ($backups as $backup)
+			{
+				$bkarray[$backup->id] = $backup;
+				$bkarray[$backup->id]->stored = file_exists($backup->absolute_path);
+				
+			}
+			$siteVersion['backups'] = $bkarray; 
+			
 			$secret = $this->params->get('secret');
-			
-			
 			if($task == 'tbw_tracking.returnTracking' ){
 				if($key==md5($secret)){
 					header('Content-Type: application/json');
@@ -62,9 +70,6 @@ if( defined('JPATH_BASE') ) {
 				echo "Invalid tracking code, exiting";
 				die();
 			}
-			
-			
-			
 			if($mainframe->isSite()) {	
 				$doc->setMetadata("tbw_tracking", "website Active"); 
 				$doc->setMetadata("tbw_tracking_version", "1.0"); 
@@ -80,7 +85,7 @@ else if($wp_version) {
 		__FILE__,
 		'tbw_tracking'
 	);
-	//$myUpdateChecker->setAuthentication('413f01f41ebff897ba6c3e5c80d173c0e59782e5');
+	$myUpdateChecker->setAuthentication('413f01f41ebff897ba6c3e5c80d173c0e59782e5');
 	global $wl_options;
 	if(is_admin()) {
 	    load_plugin_textdomain('tbw-mothership-tracking', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n');
@@ -195,8 +200,6 @@ else if($wp_version) {
 		}
 	}
 }
-
 class mothershipTracking {
-	
 }
 ?>
