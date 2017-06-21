@@ -6,10 +6,10 @@
 	<element>tbw_tracking</element>
 	<type>plugin</type>
 	<folder>system</folder>
-	<version>1.1.7</version>
-	<infourl title="TBWorks - Mothership Tracking">https://github.com/trevorbicewebdesign/Mothership-Tracking/releases/tag/1.1.7</infourl>
+	<version>1.1.8</version>
+	<infourl title="TBWorks - Mothership Tracking">https://github.com/trevorbicewebdesign/Mothership-Tracking/releases/tag/1.1.8</infourl>
 	<downloads> 
-		<downloadurl type="full" format="zip">https://github.com/trevorbicewebdesign/Mothership-Tracking/archive/1.1.7.zip</downloadurl>
+		<downloadurl type="full" format="zip">https://github.com/trevorbicewebdesign/Mothership-Tracking/archive/1.1.8.zip</downloadurl>
 	</downloads>
 	<tags>
 		<tag>stable</tag>
