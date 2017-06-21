@@ -39,6 +39,7 @@ if( defined('JPATH_BASE') ) {
 			{
 				$decode = json_decode($extension->manifest_cache);
 				$abbrv[$extension->name]['title'] 			= $extension->name;
+				$abbrv[$extension->name]['platform'] 		= $siteVersion['platform'];
 				$abbrv[$extension->name]['version'] 		= $decode->version;
 				$abbrv[$extension->name]['published'] 		= $extension->enabled;
 				$abbrv[$extension->name]['element'] 		= $extension->type.".".$extension->element.($extension->folder ? ".".$extension->folder : '');
@@ -158,6 +159,9 @@ else if($wp_version) {
 		$key 	= get_query_var('key');
 		if($task == 'tbw_tracking.returnTracking' ){
 			$version = get_bloginfo('version');
+			if ( ! function_exists( 'get_plugins' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/plugin.php';
+			}
 			$plugins = get_plugins();
 			$update_plugins = get_site_transient( 'update_plugins' );
 			$i = 0;
