@@ -6,6 +6,26 @@
 	<element>tbw_tracking</element>
 	<type>plugin</type>
 	<folder>system</folder>
+	<version>1.1.7</version>
+	<infourl title="TBWorks - Mothership Tracking">https://github.com/trevorbicewebdesign/Mothership-Tracking/releases/tag/1.1.7</infourl>
+	<downloads> 
+		<downloadurl type="full" format="zip">https://github.com/trevorbicewebdesign/Mothership-Tracking/archive/1.1.7.zip</downloadurl>
+	</downloads>
+	<tags>
+		<tag>stable</tag>
+	</tags>
+	<maintainer>Trevor Bice Webdesign</maintainer>
+	<maintainerurl>https://webdesign.trevorbice.com</maintainerurl>
+	<section>Updates</section>
+	<targetplatform name="joomla" version=".*"/>
+	<client>site</client>
+</update>
+<update>
+	<name>TBWorks - Mothership Tracking</name>
+	<description></description>
+	<element>tbw_tracking</element>
+	<type>plugin</type>
+	<folder>system</folder>
 	<version>1.1.6</version>
 	<infourl title="TBWorks - Mothership Tracking">https://github.com/trevorbicewebdesign/Mothership-Tracking/releases/tag/1.1.6</infourl>
 	<downloads> 
