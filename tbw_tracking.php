@@ -17,7 +17,14 @@ if( defined('JPATH_BASE') ) {
 			$doc 		= JFactory::getDocument();
 			$mainframe 	= JFactory::getApplication();	
 			$jinput 		= JFactory::getApplication()->input;
-			require_once(JPATH_ROOT."/libraries/cms/version/version.php");
+			// If Version is > 3.8
+			if(!file_exists(JPATH_ROOT."/libraries/cms/version/version.php")){
+				require_once(JPATH_ROOT."/libraries/src/Version.php");
+			}
+			// If Version is > 3.8
+			else {
+				require_once(JPATH_ROOT."/libraries/cms/version/version.php");
+			}
 			$version = new JVersion;
 			$siteVersion['platform'] 	= "Joomla";
 			$siteVersion['release'] 		= $version->RELEASE;
